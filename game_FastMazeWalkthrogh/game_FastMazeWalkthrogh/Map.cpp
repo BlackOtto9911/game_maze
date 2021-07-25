@@ -51,17 +51,12 @@ void Map::init()
 	target = new Target("target.png", Vector2f(-TILE, -TILE));
 	player = new Player("player.png", Vector2f(-TILE, -TILE));
 
+	step = 0;
+	timer = 0;
 }
 
 void Map::draw(RenderWindow &window) 
 {
-	if (playerX != 0 || playerY != 0 || targetX != 0 || targetY != 0)
-	{
-		makeWay(playerX, playerY, targetX, targetY, window);
-	}
-
-	//
-
 	for (auto it = entities.begin(); it != entities.end(); it++)
 	{
 		window.draw((*it)->getSprite());
@@ -169,17 +164,21 @@ void Map::makeWay(int playerX, int playerY, int targetX, int targetY, RenderWind
 
 	//end
 
-	for (long it = 1; it < path.size() - 1; it++)
+	//draw way
+	
+	for (long it = path.size() - 1; it > 0; it--)
 	{
-		Way* way = new Way("way.png", Vector2f(path[it].second * TILE + 15, path[it].first * TILE + 15));
+		Way* way = new Way("way.png", Vector2f(path[it].second * TILE, path[it].first * TILE));
 		entities.push_back(way);
 	}
 
 	Floor* floor = new Floor("tile_map.png", Vector2f(0, 0)); //fix
 	entities.push_back(floor);
-
+	
 
 	//
+
+	step = path.size() - 1;
 
 	TileMap[playerY][playerX] = ' ';
 	TileMap[targetY][targetX] = ' ';
@@ -194,4 +193,20 @@ void Map::getCoordinates(int playerX, int playerY, int targetX, int targetY)
 	this->playerY = playerY;
 	this->targetX = targetX;
 	this->targetY = targetY;
+}
+
+void Map::update(float time)
+{
+	timer += time;
+	player->movement(path[step].second, path[step].first);
+
+	if (timer > 500 && step > 0) 
+	{
+		step--;
+		timer = 0;
+	}
+	if (step == 0) 
+	{
+		return;
+	}
 }

@@ -15,10 +15,7 @@ public:
 
 	Player(String nameImage, Vector2f position);
 
-	void setSpeed(Vector2f speed);
-	Vector2f getSpeed();
-
-	void movement();
+	void movement(int playerX, int playerY);
 
 };
 

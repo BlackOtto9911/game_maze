@@ -1,2 +1,33 @@
-﻿  main.cpp
+﻿  Engine.cpp
+c:\users\root\source\repos\game_fastmazewalkthrogh\game_fastmazewalkthrogh\engine.cpp(29): warning C4244: '=': conversion from 'sf::Int64' to 'float', possible loss of data
+  Map.cpp
+c:\users\root\source\repos\game_fastmazewalkthrogh\game_fastmazewalkthrogh\map.cpp(10): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\root\source\repos\game_fastmazewalkthrogh\game_fastmazewalkthrogh\map.cpp(40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\root\source\repos\game_fastmazewalkthrogh\game_fastmazewalkthrogh\map.cpp(45): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\root\source\repos\game_fastmazewalkthrogh\game_fastmazewalkthrogh\map.cpp(171): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\root\source\repos\game_fastmazewalkthrogh\game_fastmazewalkthrogh\map.cpp(186): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\root\source\repos\game_fastmazewalkthrogh\game_fastmazewalkthrogh\map.cpp(187): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+c:\users\root\source\repos\game_fastmazewalkthrogh\game_fastmazewalkthrogh\map.cpp(200): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+  Generating Code...
   game_FastMazeWalkthrogh.vcxproj -> C:\Users\root\source\repos\game_FastMazeWalkthrogh\Debug\game_FastMazeWalkthrogh.exe

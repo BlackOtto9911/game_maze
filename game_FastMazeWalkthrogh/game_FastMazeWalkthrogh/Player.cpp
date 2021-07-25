@@ -14,3 +14,9 @@ void Player::init()
 	rect = IntRect(0, 0, width, height);
 	setTextureRect(rect);
 }
+
+void Player::movement(int playerX, int playerY) 
+{
+	setPosition(Vector2f(playerX * TILE, playerY * TILE));
+	sprite.setPosition(Vector2f(playerX * TILE, playerY * TILE));
+}

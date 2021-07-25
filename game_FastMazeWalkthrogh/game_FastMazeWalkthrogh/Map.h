@@ -32,6 +32,7 @@ private:
 	Target* target;
 
 	vector<pair<int, int>> path;
+	int step, timer;
 
 	int playerX, playerY, targetX, targetY;
 
@@ -45,6 +46,6 @@ public:
 	void makeWay(int playerX, int playerY, int targetX, int targetY, RenderWindow& window);
 	void getCoordinates(int playerX, int playerY, int targetX, int targetY);
 
-	void update();
+	void update(float time);
 };
 

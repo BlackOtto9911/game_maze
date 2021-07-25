@@ -8,6 +8,7 @@ Engine::Engine()
 void Engine::init() 
 {
 	window.create(VideoMode(WIDTH_MAP, HEIGHT_MAP), "Maze");
+	time = 0;
 
 	map = new Map();
 	draw();
@@ -18,12 +19,18 @@ void Engine::init()
 	cin >> targetX >> targetY;
 
 	map->getCoordinates(playerX, playerY, targetX, targetY);
+	map->makeWay(playerX, playerY, targetX, targetY, window);
 }
 
 void Engine::loop() 
 {
 	while (window.isOpen()) 
 	{
+		time = clock.getElapsedTime().asMicroseconds();
+		time /= 800;
+
+		clock.restart();
+
 		Event event;
 		while (window.pollEvent(event)) 
 		{
@@ -33,6 +40,7 @@ void Engine::loop()
 			}
 		}
 		draw();
+		update(time);
 	}
 }
 
@@ -43,7 +51,7 @@ void Engine::draw()
 	window.display();
 }
 
-void Engine::update() 
+void Engine::update(float time)
 {
-
+	map->update(time);
 }
